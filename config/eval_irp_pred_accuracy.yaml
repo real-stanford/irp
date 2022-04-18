@@ -1,0 +1,32 @@
+datamodule:
+  zarr_path: data/irp_rope.zarr
+  name: traj_occu_rechunk_action
+  zarr_cache_size: null
+  # dataloader
+  dataloader_params:
+    batch_size: 16
+    num_workers: 8
+    prefetch_factor: 4
+    pin_memory: False
+  # async cpu to gpu transfer
+  async_device: null
+  # sample
+  action_sigma: 0.125
+  random_init: False
+  # image
+  distance: False
+  pix_per_m: 60.34
+  direction: False
+  size:
+    train: 10000
+    val: 10000
+    test: 100000
+model:
+  ckpt_path: data/checkpoints/irp_rope.ckpt
+  threshold: 0.2
+  gpu_id: 0
+wandb:
+  project: null
+  name: null
+  tags: []
+offline: True

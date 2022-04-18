@@ -1,0 +1,32 @@
+setup:
+  zarr_path: data/irp_rope.zarr
+  name: 'traj_occu_rechunk_action'
+  selection:
+    n_ropes: 5
+    n_goals: 25
+    mask_names: ['split/is_test','split/is_interpolate']
+    seed: 0
+  n_steps: 16
+  random_init: True
+action:
+  ckpt_path: data/checkpoints/irp_rope.ckpt
+  late_fusion: False
+  gpu_id: 0
+  use_fp16: True
+  sampler:
+    num_samples: 128
+    seed: 0
+  selector:
+    batch_size: 32
+  gain: 0.5
+  sigma_max: 0.125
+  constant_sigma: null
+  threshold:
+    max: 0.2
+    min: 0.2
+    dist_max: 1.0
+wandb:
+  project: irp_eval
+  name: null
+  tags: []
+offline: True

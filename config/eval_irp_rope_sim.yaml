@@ -1,0 +1,53 @@
+env:
+  transformer:
+    low: [-3.0, -3.0]
+    high: [3.0, 3.0]
+    grid_shape: [256, 256]
+  xml_dir: data
+  template_path: assets/mujoco/ur5/ur5_stick_rope_v2.xml.jinja2
+  sim:
+    dt: 0.001
+    sim_duration: 4.0
+    subsample_rate: 10
+    visualize: False
+    kp: 3000
+    j_init_deg: [0,-70,150,-170,-90,0]
+  seed: 0
+  random_init: True
+  action:
+    speed_range: [1.0, 3.14]
+    j2_delta_range: [-1.04720, -3.14159]
+    j3_delta_range: [1.04720, -2.09440]
+    impulse_range: [-0.001, 0.001]
+    acceleration: 10.0
+setup:
+  zarr_path: data/irp_rope.zarr
+  name: 'traj_occu_rechunk_action'
+  selection:
+    n_ropes: 5
+    n_goals: 25
+    mask_names: ['split/is_test','split/is_interpolate']
+    seed: 0
+  n_steps: 16
+action:
+  ckpt_path: data/checkpoints/irp_rope.ckpt
+  late_fusion: False
+  gpu_id: 0
+  use_fp16: True
+  sampler:
+    num_samples: 128
+    seed: 0
+  selector:
+    batch_size: 32
+  gain: 0.5
+  sigma_max: 0.125
+  constant_sigma: null
+  threshold:
+    max: 0.2
+    min: 0.2
+    dist_max: 1.0
+wandb:
+  project: irp_eval
+  name: null
+  tags: []
+offline: True

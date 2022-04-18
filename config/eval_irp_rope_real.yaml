@@ -1,0 +1,59 @@
+setup:
+  goal_pixs: [[75,155],[150,180],[100,200],[65,180],[70,120]]
+  n_steps: 10
+  save_video: True
+env:
+  action:
+    swing_actor:
+      robot_ip: 192.168.0.139
+      q_init: [-90,-70,150,-170,-90,-90]
+      speed_range: [1.0,3.14]
+      j2_delta_range: [-60,-180]
+      j3_delta_range: [60,-120]
+      tcp_offset: 0.5
+    action_duration: 0.7
+    reset:
+      action: [0.9,1,1]
+      duration: 0.5
+      speed: 2.8
+  vision:
+    transformer:
+      zarr_path: data/irp_rope.zarr
+    projector:
+      calib_path: data/calibration.pkl
+      flip_x: True
+      confidence_threshold: 0.3
+    tracker:
+      ckpt_path: data/checkpoints/rope_tracking.ckpt
+      gpu_id: 0
+    ram_recorder:
+      maxlen: 6000
+    buff_tracker:
+      max_batch_size: 4
+action:
+  ckpt_path: data/checkpoints/irp_rope.ckpt
+  late_fusion: False
+  gpu_id: 0
+  use_fp16: True
+  sampler:
+    num_samples: 128
+    seed: 0
+  selector:
+    batch_size: 32
+  gain: 0.5
+  sigma_max: 0.125
+  constant_sigma: null
+  threshold:
+    max: 0.2
+    min: 0.2
+    dist_max: 1.0
+  init_action:
+    zarr_path: data/irp_rope.zarr
+    name: train_rope/best_action_coord
+    action_scale: 50
+    const_action: [0.2, 0.2, 0.6]
+wandb:
+  project: irp_real
+  name: null
+  tags: ['ours']
+offline: True
