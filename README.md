@@ -8,7 +8,7 @@ This repository contains the source code for the paper [Iterative Residual Polic
 @inproceedings{chi2022irp,
   title={Iterative Residual Policy for Goal-Conditioned Dynamic Manipulation of Deformable Objects},
   author={Chi, Cheng and Burchfiel, Benjamin and Cousineau, Eric and Feng, Siyuan and Song, Shuran},
-  booktitle={The IEEE International Conference on Computer Vision (ICCV)},
+  booktitle={Proceedings of Robotics: Science and Systems (RSS)},
   year={2022}
 }
 ```
