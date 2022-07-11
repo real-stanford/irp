@@ -18,10 +18,18 @@ IRP Rope Dataset [required for eval] (7.63GB)
 * [Google Drive (Recommended)](https://drive.google.com/file/d/1uv7APODe6yl3vTaBLfOOz5Q9APdZdkqd/view?usp=sharing) 
 * [Columbia Server](https://irp.cs.columbia.edu/data/irp_rope.zarr.tar)
 
+IRP Cloth Dataset [training only] (938MB)
+* [Google Drive (Recommended)](https://drive.google.com/file/d/1Dr88BtKbLWn8_UHTHBgbv5lhvzqvo9Dw/view?usp=sharing)
+* [Columbia Server](https://irp.cs.columbia.edu/data/irp_cloth.zarr.tar)
+
 ## Pretrained Models
 IRP Rope [action + tracking] (914MB)
 * [Google Drive (Recommended)](https://drive.google.com/file/d/1_lODhez-JeGKbQvxHHfD3NBHBT-TSvrD/view?usp=sharing) 
 * [Columbia Server](https://irp.cs.columbia.edu/data/checkpoints.tar)
+
+IRP Cloth [action] (450MB)
+* [Google Drive (Recommended)](https://drive.google.com/file/d/1K9CJKkVDS0wmpTV2alXAOoy5_UhAmkcI/view?usp=sharing)
+* [Columbia Server](https://irp.cs.columbia.edu/data/irp_cloth.ckpt)
 
 ## Usage
 ### Installation (🖥️ Basic)
