@@ -1,0 +1,41 @@
+datamodule:
+  zarr_path: data/irp_cloth.zarr
+  name: traj_occu
+  zarr_cache_size: null
+  # dataloader
+  dataloader_params:
+    batch_size: 32
+    num_workers: 8
+    prefetch_factor: 4
+    pin_memory: False
+  # async cpu to gpu transfer
+  async_device: null
+  # sample
+  action_sigma: 0.125
+  size:
+    train: 10000
+    val: 10000
+model:
+  action_sigma: null
+  n_channels: 9
+  action_dim: 4
+  n_features: 64
+  learning_rate: 0.001
+  weight_decay: 0.000001
+  loss: 'bce'
+checkpoint_callback:
+  save_top_k: 10
+  every_n_epochs: 1
+vis_callback:
+  input_key: 'target_trajectory'
+  grid_shape: [3,3]
+  num_samples: 16
+  seed: 0
+trainer:
+  gpus: [0]
+  check_val_every_n_epoch: 1
+  val_check_interval: 1.0
+logger:
+  offline: True
+  name: null
+  tags: []
