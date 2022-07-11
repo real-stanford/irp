@@ -1,0 +1,42 @@
+setup:
+    rope_config:
+        table_height: 0.8
+        table_y: 1
+        table_size: 1.2
+        cloth_spacing: 0.05
+        cloth_density: 1.4
+    controller_config:
+        joint_names: ['gy', 'gz']
+        kp: 100000
+        kv: 100000
+    selection:
+        cloth_size_density: [[0.46,0.98],[0.51,0.73],[0.48,1.27],[0.46,1.35],[0.43,0.66]]
+        goal_alpha: [0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1. ]
+    n_steps: 16
+    traj_loss:
+        measure_dims: [0,1,2]
+    img_loss:
+        measure_dims: [0,1]
+    obs_topdown: False
+action:
+    ckpt_path: data/checkpoints/irp_cloth.ckpt
+    gpu_id: 0
+    use_fp16: True
+    init_action: [0.87,0.8,0.7,0.3]
+    sampler:
+        num_samples: 128
+        seed: 0
+        dim: 4
+    selector:
+        batch_size: 32
+    gain: 0.5
+    sigma_max: 0.125
+    constant_sigma: null
+    threshold:
+        max: 0.2
+        min: 0.2
+        dist_max: 1.0
+wandb:
+    project: cloth_eval_v2
+    name: null
+    tags: ['ours','interpolate']
