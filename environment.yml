@@ -36,7 +36,7 @@ dependencies:
   - colorama=0.4.4=pyh9f0ad1d_0
   - configparser=5.2.0=pyhd8ed1ab_0
   - cryptography=36.0.2=py38h2b5fc30_1
-  - cudatoolkit=11.2.0=h73cb219_9
+  - cudatoolkit=11.2
   - cycler=0.11.0=pyhd8ed1ab_0
   - cytoolz=0.11.2=py38h0a891b7_2
   - dask-core=2022.4.1=pyhd8ed1ab_0
@@ -188,8 +188,7 @@ dependencies:
   - python=3.8.13=h582c2e5_0_cpython
   - python-dateutil=2.8.2=pyhd8ed1ab_0
   - python_abi=3.8=2_cp38
-  - pytorch=1.9.0=cpu_py38h4bbe6ce_2
-  - pytorch-cpu=1.9.0=cpu_py38h718b53a_2
+  - pytorch-gpu=1.9.0
   - pytorch-lightning=1.4.4=pyhd8ed1ab_0
   - pytz=2022.1=pyhd8ed1ab_0
   - pyu2f=0.1.5=pyhd8ed1ab_0
@@ -202,9 +201,9 @@ dependencies:
   - rsa=4.8=pyhd8ed1ab_0
   - scikit-image=0.19.2=py38h43a58ef_0
   - scikit-video=1.1.11=pyh24bf2e0_0
-  - scipy=1.7.1=py38h56a6a73_0
+  - scipy
   - sentry-sdk=1.5.10=pyhd8ed1ab_0
-  - setuptools=62.1.0=py38h578d9bd_0
+  - setuptools=59.5.0
   - shapely=1.8.0=py38h97f7145_6
   - shortuuid=1.0.8=py38h578d9bd_0
   - six=1.16.0=pyh6c4a22f_0
@@ -220,8 +219,8 @@ dependencies:
   - tifffile=2022.4.8=pyhd8ed1ab_0
   - tk=8.6.12=h27826a3_0
   - toolz=0.11.2=pyhd8ed1ab_0
-  - torchmetrics=0.8.0=pyhd8ed1ab_0
-  - torchvision=0.10.1=py38h9e2e28c_0_cpu
+  - torchmetrics=0.5
+  - torchvision=0.10.1
   - tornado=6.1=py38h0a891b7_3
   - tqdm=4.64.0=pyhd8ed1ab_0
   - typing-extensions=4.1.1=hd8ed1ab_0
@@ -252,3 +251,7 @@ dependencies:
   - zipp=3.8.0=pyhd8ed1ab_0
   - zlib=1.2.11=h166bdaf_1014
   - zstd=1.5.2=ha95c52a_0
+  - pip:
+    # requires mujoco py dependencies libosmesa6-dev libgl1-mesa-glx libglfw3 patchelf
+    - free-mujoco-py==2.1.6
+    - abr_control @ https://github.com/cheng-chi/abr_control/archive/a0a91a415950ed3d9edba6ce85cdb1fd4d612926.tar.gz
